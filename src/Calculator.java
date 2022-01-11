@@ -1,14 +1,12 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-
 public class Calculator {
     private double result;
     private double secondOperand;
     private char operation;
     private int processId;
     boolean isInfinityCalculating = false;
-
 
     Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +18,6 @@ public class Calculator {
     public void setResult(double result) {
         this.result = result;
     }
-
 
     public void setFirstOperand() {
         setProcessId(1);
@@ -36,7 +33,6 @@ public class Calculator {
         setProcessId(3);
         programMessage(3);
         checkUserEnter();
-
     }
 
     public char getOperation() {
@@ -47,7 +43,6 @@ public class Calculator {
         setProcessId(2);
         programMessage(2);
         checkOperation();
-
     }
 
     public int getProcessId() {
@@ -128,15 +123,13 @@ public class Calculator {
     }
 
     public void checkUserEnter() {
-        double operand;
         String userEntry = getNextLine();
         stringToDouble(userEntry);
-
     }
 
 
     public void stringToDouble(String userEntry) {
-        double operand = 0;
+        double operand;
         try {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < userEntry.length(); i++) {
@@ -153,15 +146,11 @@ public class Calculator {
                  setInfinityCalculating(true);
              }else {
                  setSecondOperand(operand);
-
              }
-
         } catch (NumberFormatException e) {
             try {
                 if (userEntry.charAt(0) == 's' || userEntry.charAt(0) == 'c') {
-
                     controlOperation(userEntry.charAt(0));
-
                 } else {
                     programMessage(6);
                     checkProcessId(getProcessId());
@@ -171,7 +160,6 @@ public class Calculator {
                 checkProcessId(getProcessId());
             }
         }
-
     }
 
     public void checkProcessId(int processId) {
@@ -212,7 +200,6 @@ public class Calculator {
             programMessage(12);
             checkProcessId(getProcessId());
         }
-
     }
 
     public void controlOperation(char operation) {
@@ -226,9 +213,7 @@ public class Calculator {
                 programMessage(9);
                 System.exit(0);
             }
-
         }
-
     }
 
     public void defaultValue() {
@@ -236,7 +221,6 @@ public class Calculator {
         setResult(0);
         setOperation(' ');
         setSecondOperand(0);
-
     }
 
     public void getResolve() {
@@ -270,9 +254,5 @@ public class Calculator {
             setSecondOperand();
             getResolve();
         }
-
-
     }
-
-
 }
